@@ -1,0 +1,92 @@
+@import 'styles/helpers/variables.scss';
+
+.wrapper {
+  width: 427px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.label {
+  color: $color-grey;
+  margin-bottom: 24px;
+}
+
+.input {
+  color: $color-grey;
+  background: #f3f3f4;
+  border-radius: 16px;
+  padding: 16px 24px;
+  font-family: 'Nekst-Black';
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  border: none;
+  -moz-appearance: textfield;
+
+  display: block;
+
+  
+  &::first-letter{
+    vertical-align: sub;
+    color: red;
+}
+
+  &:hover,
+  &:focus {
+    -moz-appearance: number-input;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.range {
+  position: absolute;
+  content: '';
+  bottom: 0px;
+  height: 1px;
+  left: 24px;
+  right: 24px;
+  width: -moz-available;
+  background-color: $color-grey-light;
+
+  outline: none;
+  transition: 0.3s;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: $color-orange;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &::-moz-range-progress {
+    background: $color-orange;
+    height: 2px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+}
+
+.price {
+
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  font-family: 'Nekst-Black';
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color-grey;
+
+}
