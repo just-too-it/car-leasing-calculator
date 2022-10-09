@@ -4,7 +4,7 @@
   width: 427px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  // position: relative;
 }
 
 .label {
@@ -12,25 +12,31 @@
   margin-bottom: 24px;
 }
 
-.input {
-  color: $color-grey;
+.inputWrapper {
   background: #f3f3f4;
   border-radius: 16px;
   padding: 16px 24px;
   font-family: 'Nekst-Black';
   font-weight: 900;
+  outline: none;
+  display: flex;
+  position: relative;
+}
+
+.input {
+  background: #f3f3f4;
+  color: $color-grey;
+  border-radius: 16px;
   font-size: 30px;
   line-height: 36px;
+  color: $color-grey;
+
+  outline: none;
+
   border: none;
   -moz-appearance: textfield;
 
   display: block;
-
-  
-  &::first-letter{
-    vertical-align: sub;
-    color: red;
-}
 
   &:hover,
   &:focus {
@@ -42,6 +48,17 @@
     -webkit-appearance: none;
     margin: 0;
   }
+}
+
+.rate {
+  width: 69px;
+  height: 54px;
+  background: #ebebec;
+  padding: 15px 17px;
+  margin-left: auto;
+  margin-top: -11px;
+  margin-bottom: -11px;
+  font-size: 20px;
 }
 
 .range {
@@ -79,14 +96,21 @@
 }
 
 .price {
-
   position: absolute;
-  top: 50%;
+  top: 16px;
   right: 24px;
   font-family: 'Nekst-Black';
   font-weight: 900;
   font-size: 30px;
   line-height: 36px;
   color: $color-grey;
+}
 
+.percent {
+  position: absolute;
+  top: 20px;
+  right: 37px;
+  font-size: 20px;
+  line-height: 24px;
+  color: $color-grey;
 }

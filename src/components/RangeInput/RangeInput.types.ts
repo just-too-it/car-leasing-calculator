@@ -10,5 +10,6 @@ export type RangeInputProps = {
     min: number;
     max: number;
     step?: number;
+    addingText?: any
     // typeInput: INPUT_NAME.price | INPUT_NAME.payment | INPUT_NAME.period;
 }
