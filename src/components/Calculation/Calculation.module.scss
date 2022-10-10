@@ -1,0 +1,43 @@
+@import 'styles/helpers/variables.scss';
+
+.wrapper {
+  width: 427px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperInit {
+    width: 300px;
+}
+
+.label {
+  color: $color-grey;
+  margin-bottom: 8px;
+}
+
+.inputWrapper {
+  width: inherit;
+  padding: 0;
+  font-family: 'Nekst-Black';
+  font-weight: 900;
+  outline: none;
+  display: flex;
+  position: relative;
+  height: 68px;
+}
+
+.input {
+  width: inherit;
+  font-size: 54px;
+  line-height: 49px;
+  color: $color-black-light;
+  outline: none;
+  border: none;
+}
+
+.init {
+  background-color: transparent;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color-grey;
+}

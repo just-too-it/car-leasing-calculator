@@ -21,6 +21,7 @@
   outline: none;
   display: flex;
   position: relative;
+  height: 68px;
 }
 
 .input {
@@ -97,7 +98,7 @@
 
 .price {
   position: absolute;
-  top: 16px;
+  top: 12px;
   right: 24px;
   font-family: 'Nekst-Black';
   font-weight: 900;

@@ -1,0 +1,47 @@
+@import 'styles/helpers/variables.scss';
+
+.form {
+  width: 1344px;
+}
+
+.calculation,
+.information {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+
+.calculation {
+  margin-bottom: 44px;
+}
+
+// .info {
+//   width: 427px;
+//   font-family: 'Nekst-Black';
+//   font-weight: 900;
+// }
+
+// .subtitle {
+//   line-height: 24px;
+//   color: $color-grey;
+// }
+
+// .content {
+//   font-size: 54px;
+//   line-height: 49px;
+//   color: $color-black-light;
+// }
+
+.button {
+  width: 426px;
+  height: 68px;
+  padding: 8px 16px 12px;
+  background: $color-orange;
+  border-radius: 40px;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color-white;
+  border: none;
+  cursor: pointer;
+}
