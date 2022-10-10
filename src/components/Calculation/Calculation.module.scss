@@ -33,6 +33,7 @@
   color: $color-black-light;
   outline: none;
   border: none;
+  background: transparent;
 }
 
 .init {
@@ -40,4 +41,5 @@
   font-size: 30px;
   line-height: 36px;
   color: $color-grey;
+  height: 28px;
 }

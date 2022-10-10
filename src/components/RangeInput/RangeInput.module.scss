@@ -1,7 +1,7 @@
 @import 'styles/helpers/variables.scss';
 
 .wrapper {
-  width: 427px;
+  width: 425px;
   display: flex;
   flex-direction: column;
   // position: relative;
@@ -21,7 +21,29 @@
   outline: none;
   display: flex;
   position: relative;
-  height: 68px;
+  height: 64px;
+  border: 2px solid transparent;
+
+  &:active, &:focus {
+    background: $color-white;
+    border: 2px solid #F3F3F4;
+    border-radius: 16px;
+
+    & .input {
+      background: $color-white;
+    }
+  
+  }
+
+  &:hover .range {
+    &::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+    }
+    &::-moz-range-progress {
+      height: 1px;
+    }
+  }
 }
 
 .input {
@@ -31,13 +53,11 @@
   font-size: 30px;
   line-height: 36px;
   color: $color-grey;
-
   outline: none;
-
   border: none;
   -moz-appearance: textfield;
-
   display: block;
+
 
   &:hover,
   &:focus {
@@ -51,13 +71,14 @@
   }
 }
 
+
 .rate {
   width: 69px;
   height: 54px;
   background: #ebebec;
   padding: 15px 17px;
   margin-left: auto;
-  margin-top: -11px;
+  margin-top: -13px;
   margin-bottom: -11px;
   font-size: 20px;
 }
@@ -65,12 +86,13 @@
 .range {
   position: absolute;
   content: '';
-  bottom: 0px;
+  bottom: -1px;
   height: 1px;
   left: 24px;
   right: 24px;
   width: -moz-available;
   background-color: $color-grey-light;
+  cursor: pointer;
 
   outline: none;
   transition: 0.3s;
@@ -85,7 +107,6 @@
     background: $color-orange;
     border: none;
     border-radius: 50%;
-    cursor: pointer;
   }
 
   &::-moz-range-progress {
@@ -93,6 +114,10 @@
     height: 2px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+
+    &:hover {
+      height: 1px;
+    }
   }
 }
 
@@ -114,4 +139,13 @@
   font-size: 20px;
   line-height: 24px;
   color: $color-grey;
+}
+
+.disabled {
+
+
+    color: $color-grey;
+    background-color: #F3F3F4;
+    opacity: 0.5;
+  
 }

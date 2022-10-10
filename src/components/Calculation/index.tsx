@@ -12,7 +12,7 @@ export const Calculation: FC<CalculationProps> = ({ name, label, price, rate, pe
   const [amount, setAmout] = useState(0);
 
   const initPay = useMemo(() => {
-    return (price * rate) / 100;
+    return Math.ceil((price * rate) / 100);
   }, [price, rate]);
 
   const getMonthPayment = useCallback(

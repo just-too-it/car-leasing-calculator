@@ -3,6 +3,7 @@ export type RangeInputProps = {
     label: string;
     min: number;
     max: number;
+    disabled: boolean;
     step?: number;
     children?: any;
 }

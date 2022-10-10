@@ -5,6 +5,8 @@ import { Formik, Form, FormikHelpers, validateYupSchema, Field } from 'formik';
 import styles from './Calculator.module.scss';
 import { TextInput } from 'components/TextInput';
 import { Calculation } from 'components/Calculation';
+import * as yup from 'yup';
+import { postData } from 'service/postData';
 
 interface Values {
   price: number;
@@ -14,6 +16,15 @@ interface Values {
   contractAmount: number;
   initialPayment: number;
 }
+
+const validationSchema = yup.object().shape({
+  price: yup
+  .number()
+  .required('Обязательно для заполнения')
+  .min(1000000, 'Минимальное значение: 1 000 000')
+  .max(6000000, 'Максимальное значение: 6 000 000'),
+});
+
 
 export const Calculator = () => {
   return (
@@ -27,18 +38,23 @@ export const Calculator = () => {
           contractAmount: 0,
           initialPayment: 0,
         }}
-        onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-          setTimeout(() => {
+        validateOnChange={true}
+        validateOnBlur={false}
+        onSubmit={(values: Values, { setSubmitting, resetForm }: FormikHelpers<Values>) => {
+          setTimeout(async () => {
             console.log(JSON.stringify(values, null, 2));
+            postData('https://hookb.in/eK160jgYJ6UlaRPldJ1P', values)
             setSubmitting(false);
-          }, 500);
+            resetForm()
+          }, 1000);
         }}
+        validationSchema={validationSchema}
       >
-        {({ values, handleSubmit, setFieldValue, handleReset }) => (
+        {({ values, setFieldValue, isValid, isSubmitting }) => (
           <Form className={styles.form}>
             <div className={styles.calculation}>
-              <RangeInput name="price" label="Стоимость автомобиля" min={1000000} max={6000000} step={50000} />
-              <RangeInput name="rate" label="Первоначальный взнос" min={10} max={60}>
+              <RangeInput name="price" label="Стоимость автомобиля" min={1000000} max={6000000} step={50000} disabled={isSubmitting ? true : false}/>
+              <RangeInput name="rate" label="Первоначальный взнос" min={10} max={60} disabled={isSubmitting ? true : false} >
                 <Calculation
                   name="initialPayment"
                   price={values.price}
@@ -47,7 +63,7 @@ export const Calculator = () => {
                   setFieldValue={setFieldValue}
                 />
               </RangeInput>
-              <RangeInput name="period" label="Срок лизинга" min={1} max={60} />
+              <RangeInput name="period" label="Срок лизинга" min={1} max={60} disabled={isSubmitting ? true : false}/>
             </div>
             <div className={styles.information}>
               <div className={styles.info}>
@@ -71,7 +87,7 @@ export const Calculator = () => {
                 />
               </div>
               <div className={styles.info}>
-                <button type="submit" className={styles.button}>
+                <button type="submit" className={styles.button} disabled={isSubmitting ? true : false}>
                   Оставить заявку
                 </button>
               </div>

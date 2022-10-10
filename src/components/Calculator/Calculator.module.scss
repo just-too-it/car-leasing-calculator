@@ -16,23 +16,6 @@
   margin-bottom: 44px;
 }
 
-// .info {
-//   width: 427px;
-//   font-family: 'Nekst-Black';
-//   font-weight: 900;
-// }
-
-// .subtitle {
-//   line-height: 24px;
-//   color: $color-grey;
-// }
-
-// .content {
-//   font-size: 54px;
-//   line-height: 49px;
-//   color: $color-black-light;
-// }
-
 .button {
   width: 426px;
   height: 68px;
@@ -44,4 +27,17 @@
   color: $color-white;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    background: $color-black;
+  }
+
+  &:active {
+    background: $color-grey;
+  }
+
+  &:disabled {
+    background: rgba(255, 149, 20, 0.4);
+    cursor: auto;
+  }
 }
