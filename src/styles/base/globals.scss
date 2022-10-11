@@ -22,11 +22,27 @@ h1 {
 }
 
 .container {
-  max-width: $desktop-width-lg;
+  max-width: 1374px;
   width: 100%;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: 213px;
+
+  @media (max-width: $desktop-width-max) {
+    max-width: 1054px;
+  }
+
+  @media (max-width: $tablet-width-max) {
+    max-width: 726px;
+    margin-top: 64px;
+  }
+
+  @media (max-width: $mobile-width-max) {
+    max-width: 310px;
+    margin-top: 44px;
+  }
+
 }
 
 a {

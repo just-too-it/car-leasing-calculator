@@ -1,3 +1,5 @@
+@import 'styles/helpers/variables.scss';
+
 .title {
     font-family: 'Nekst-Black';
     font-weight: 900;
@@ -5,4 +7,14 @@
     line-height: 49px;
     margin-bottom: 32px;
     width: 753px;
+
+    @media (max-width: $tablet-width-max) {
+        margin-bottom: 44px;
+      }
+
+      @media (max-width: $mobile-width-max) {
+        width: 100%;
+        font-size: 34px;
+        line-height: 31px;
+      }
 }

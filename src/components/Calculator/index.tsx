@@ -28,7 +28,7 @@ const validationSchema = yup.object().shape({
 
 export const Calculator = () => {
   return (
-    <>
+    
       <Formik
         initialValues={{
           price: 3300000,
@@ -66,7 +66,6 @@ export const Calculator = () => {
               <RangeInput name="period" label="Срок лизинга" min={1} max={60} disabled={isSubmitting ? true : false}/>
             </div>
             <div className={styles.information}>
-              <div className={styles.info}>
                 <Calculation
                   name="contractAmount"
                   price={values.price}
@@ -75,8 +74,6 @@ export const Calculator = () => {
                   label={'Сумма договора лизинга'}
                   setFieldValue={setFieldValue}
                 />
-              </div>
-              <div className={styles.info}>
                 <Calculation
                   name="monthPay"
                   price={values.price}
@@ -85,16 +82,13 @@ export const Calculator = () => {
                   label={'Ежемесячный платеж от'}
                   setFieldValue={setFieldValue}
                 />
-              </div>
-              <div className={styles.info}>
                 <button type="submit" className={styles.button} disabled={isSubmitting ? true : false}>
                   Оставить заявку
                 </button>
-              </div>
             </div>
           </Form>
         )}
       </Formik>
-    </>
+   
   );
 };
