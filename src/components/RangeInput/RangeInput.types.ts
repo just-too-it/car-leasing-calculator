@@ -5,5 +5,5 @@ export type RangeInputProps = {
     max: number;
     disabled: boolean;
     step?: number;
-    children?: any;
+    children?: React.ReactNode;
 }

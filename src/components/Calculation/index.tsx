@@ -1,9 +1,10 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { CalculationProps } from './Calculation.types';
 import { Field } from 'formik';
+import clsx from 'clsx';
+
+import { CalculationProps } from './Calculation.types';
 
 import styles from './Calculation.module.scss';
-import clsx from 'clsx';
 
 export const Calculation: FC<CalculationProps> = ({ name, label, price, rate, period, setFieldValue }) => {
   const INTEREST_RATE = 0.035;
@@ -66,12 +67,11 @@ export const Calculation: FC<CalculationProps> = ({ name, label, price, rate, pe
           <label htmlFor={name} className={styles.label}>
             {label}
           </label>
-            <div className={styles.inputWrapper}>
-              <Field type="text" id={name} name={name} className={styles.input} value={value} disabled />
-            </div>
+          <div className={styles.inputWrapper}>
+            <Field type="text" id={name} name={name} className={styles.input} value={value} disabled />
+          </div>
         </article>
       )}
     </>
   );
 };
-

@@ -1,4 +1,4 @@
-@import '../helpers/variables.scss';
+@import '../helpers/variables';
 
 html,
 body {
@@ -42,7 +42,6 @@ h1 {
     max-width: 310px;
     margin-top: 44px;
   }
-
 }
 
 a {
