@@ -6,4 +6,5 @@ export type RangeInputProps = {
     disabled: boolean;
     step?: number;
     children?: React.ReactNode;
+    setFieldValue?: (x: string, y: string|number)=>void;
 }

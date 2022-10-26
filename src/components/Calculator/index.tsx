@@ -25,16 +25,18 @@ const validationSchema = yup.object().shape({
 });
 
 export const Calculator = () => {
+  const initValues: Values = {
+    price: 3300000,
+    rate: 13,
+    period: 60,
+    monthPay: 0,
+    contractAmount: 0,
+    initialPayment: 0,
+  };
+
   return (
     <Formik
-      initialValues={{
-        price: 3300000,
-        rate: 13,
-        period: 60,
-        monthPay: 0,
-        contractAmount: 0,
-        initialPayment: 0,
-      }}
+      initialValues={initValues}
       validateOnChange={true}
       validateOnBlur={false}
       onSubmit={(values: Values, { setSubmitting, resetForm }: FormikHelpers<Values>) => {
@@ -57,6 +59,7 @@ export const Calculator = () => {
               max={6000000}
               step={50000}
               disabled={isSubmitting ? true : false}
+              setFieldValue={setFieldValue}
             />
             <RangeInput
               name="rate"
@@ -64,6 +67,7 @@ export const Calculator = () => {
               min={10}
               max={60}
               disabled={isSubmitting ? true : false}
+              setFieldValue={setFieldValue}
             >
               <Calculation
                 name="initialPayment"
@@ -73,7 +77,14 @@ export const Calculator = () => {
                 setFieldValue={setFieldValue}
               />
             </RangeInput>
-            <RangeInput name="period" label="Срок лизинга" min={1} max={60} disabled={isSubmitting ? true : false} />
+            <RangeInput
+              name="period"
+              label="Срок лизинга"
+              min={1}
+              max={60}
+              disabled={isSubmitting ? true : false}
+              setFieldValue={setFieldValue}
+            />
           </div>
           <div className={styles.information}>
             <Calculation

@@ -17,7 +17,7 @@ export const Calculation: FC<CalculationProps> = ({ name, label, price, rate, pe
   }, [price, rate]);
 
   const getMonthPayment = useCallback(
-    (price, period) => {
+    (price, period: number) => {
       return Math.ceil(
         (price - initPay) *
           ((INTEREST_RATE * Math.pow(1 + INTEREST_RATE, period)) / (Math.pow(1 + INTEREST_RATE, period) - 1))
